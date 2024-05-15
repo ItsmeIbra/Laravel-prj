@@ -2,21 +2,21 @@
 @section('content')
  
 <div class="card">
-  <div class="card-header">Payment Page</div>
+  <div class="card-header">Modifier paiement Page</div>
   <div class="card-body">
       
       <form action="{{ url('/payment/' .$payment->id) }}" method="post" enctype="multipart/form-data">
        @csrf
         @method("PATCH")
         <input type="hidden" name="id" id="id" value="{{$payment->id}}" id="id" />
-        <p>Payment method</p></br>
-        <input type="radio" id="html" name="type_of_pay" value="esp" class="form-control">
-        <label for="html">Espace</label><br>
-        <input type="radio" id="css" name="type_of_pay" value="ver" class="form-control">
-        <label for="css">Virement</label></br>
-        <label>Date</label></br>
-        <input type="text" name="paid_date" id="paid_date" value="{{$payment->paid_date}}" class="form-control"></br>
-        <label>Amount</label></br>
+        <p>Methode de paiement</p></br>
+        <select id="pay" class="form-control" name="type_of_pay">
+          <option value="virement">virement</option>
+          <option value="espace">espace</option>
+        </select>
+        <label>Date de paiement</label></br>
+        <input type="date" name="paid_data" id="paid_data" value="{{$payment->paid_data}}" class="form-control"></br>
+        <label>Montant</label></br>
         <input type="text" name="amount" id="address" value="{{$payment->amount}}" class="form-control"></br>
         
         <input type="submit" value="Update" class="btn btn-success"></br>

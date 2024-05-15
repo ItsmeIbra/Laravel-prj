@@ -47,6 +47,7 @@ div.content {
 }
 
 
+
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
@@ -63,7 +64,14 @@ div.content {
     float: none;
   }
 }
-
+.navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar-brand {
+            margin: 0;
+        }
 
 </style>
 <body>
@@ -72,7 +80,7 @@ div.content {
         <div class="col-md-12">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#"><h2>School managment</h2></a>
+                  <a class="navbar-brand" href="#"><h2>Ecole Managment</h2></a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -82,10 +90,10 @@ div.content {
         <div class="row">
         <div class="col-md-3">
             <div class="sidebar">
-                <a class="" href="{{url('home.home')}}">Home</a>
-                <a href="{{ route ('etudiant.index')}} ">Student</a>
-                <a href="{{ route ('teachers.index')}} ">Teachers</a>
-                <a href="{{ route ('payment.index')}}">Payment</a>
+                <a class="" href="{{url('accueil.home')}}">Accueil</a>
+                <a href="{{ route ('etudiant.index')}} ">Etudiantes</a>
+                <a href="{{ route ('teachers.index')}} ">Professeurs</a>
+                <a href="{{ route ('payment.index')}}">Paiement</a>
               </div>
         </div>
         <div class="col-md-9">

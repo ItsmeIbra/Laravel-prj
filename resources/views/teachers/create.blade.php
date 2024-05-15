@@ -2,7 +2,7 @@
 @section('content')
  
 <div class="card">
-  <div class="card-header">Teachers Page</div>
+  <div class="card-header">Ajouter un prof</div>
   <div class="card-body">
     
      @if(Session::has('success'))
@@ -23,28 +23,28 @@
    
       <form action=" {{route('teachers.store')}}" method="post"  enctype="multipart/form-data">
         @csrf
-        <label>Name</label></br>
+        <label>Nom</label></br>
         <input type="text" name="name" id="name" class="form-control"></br>
-        {{-- @error('name')
+        @error('name')
 <div class="text-danger">{{$message}}</div>
-@enderror --}}
-        <label>material</label></br>
+@enderror 
+        <label>Matiere</label></br>
         <input type="text" name="material" id="material" class="form-control"></br>
-        {{-- @error('age')
+        @error('material')
 <div class="text-danger">{{$message}}</div>
-@enderror --}}
-        <label>email</label></br>
+@enderror 
+        <label>Email</label></br>
         <input type="text" name="email" id="email" class="form-control"></br>
-        {{-- @error('email')
-{{-- <div class="text-danger">{{$message}}</div>
-@enderror --}} 
-        <label>Mobile</label></br>
+         @error('email')
+<div class="text-danger">{{$message}}</div>
+@enderror  
+        <label>Telephone</label></br>
         <input type="text" name="mobile" id="mobile" class="form-control"></br>
-        {{-- @error('mobile')
-{{-- <div class="text-danger">{{$message}}</div>
-@enderror --}} 
+ @error('mobile')
+ <div class="text-danger">{{$message}}</div>
+@enderror 
 <div class="mb-3">
-            <label> upload the photo</label>
+            <label> Télécharger la photo</label>
             <input type="file" name="img" accept="image/*">
             </div>
         <input type="submit" value="Save" class="btn btn-success"></br>

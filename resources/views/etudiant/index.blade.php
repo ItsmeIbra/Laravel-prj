@@ -20,16 +20,16 @@
      <thead>
       <tr>
       <th>ID</th>
-        <th>image</th>
-       <th>Name</th>
-       <th>Level</th>
-       <th>email</th>
-       <th>Mobile</th>
-                                        
+        <th>Photo personnelle</th>
+       <th>Nom</th>
+       <th>neavau</th>
+       <th>Email</th>
+       <th>Telephone</th>
+       <th>Actions</th>                        
        </tr>
          </thead>
         <tbody>
-        @foreach($students as $item)
+        @foreach($etudiant as $item)
           <tr>
              <td>{{ $loop->iteration }}</td>
              <td><img src="{{ asset('images/' . $item->image) }}" style="width:60px; height:60px;" alt='img'></td>
@@ -43,7 +43,7 @@
          <a href="{{ url('/etudiant/' . $item->id) }}" title="View Student"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
           <a href="{{ url('/etudiant/' . $item->id . '/edit') }}" title="Edit Student"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
  
-          <form method="POST" action="{{ url('/etudiant/' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+          <form method="POST" action="{{ url('/etudiant' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
            {{ method_field('DELETE') }}
               @csrf
               <a href="{{ url('/etudiant/' . $item->id) }}" title="Delete Student"> <button type="submit" class="btn btn-danger btn-sm" title="Delete Student" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
@@ -54,7 +54,7 @@
                             </tbody>
                             </table>
                             <div class="pagination-container d-flex justify-content-center">
-                                {{ $students->links('pagination::bootstrap-5') }}
+                                {{ $etudiant->links('pagination::bootstrap-5') }}
                             </div>
                         </div>
  

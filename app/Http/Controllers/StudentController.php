@@ -13,8 +13,8 @@ class StudentController extends Controller
 {
     public function index(): View
     {
-        $students = Student::paginate(2);
-        return view('etudiant.index')->with('students', $students);
+        $etudiant = Student::paginate(2);
+        return view('etudiant.index')->with('etudiant', $etudiant);
     }
 
     public function create()
@@ -50,34 +50,35 @@ class StudentController extends Controller
 
     public function show(string $id): View
     {
-        $students = Student::find($id);
-        return view('etudiant.show')->with('students', $students);
+        $etudiant = Student::find($id);
+        return view('etudiant.show')->with('etudiant', $etudiant);
     }
 
 
     public function edit(string $id): View
     {
-        $students = Student::find($id);
-        return view('etudiant.edit')->with('students', $students);
+        $etudiant = Student::find($id);
+        return view('etudiant.edit')->with('etudiant', $etudiant);
     }
 
 
     public function update(Request $request, string $id): RedirectResponse
     {
         $request->validate([
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'name' => 'required',
             'level' => 'required|integer',
             'email' => 'max:255',
             'mobile' => 'required',
         ]);
 
-        $students = Student::find($id);
+        $etudiant = Student::findOrFail($id);
 
 
-        $students->name = $request->input('name');
-        $students->level = $request->input('level');
-        $students->email = $request->input('email');
-        $students->mobile = $request->input('mobile');
+        $etudiant->name = $request->input('name');
+        $etudiant->level = $request->input('level');
+        $etudiant->email = $request->input('email');
+        $etudiant->mobile = $request->input('mobile');
 
 
         if ($request->hasFile('image')) {
@@ -85,13 +86,13 @@ class StudentController extends Controller
             $filename = time() . '_' . $file->getClientOriginalName();
             $path = public_path('images');
             $file->move($path, $filename);
-            $students->image = $filename;
+            $etudiant->image = $filename;
         }
 
 
-        $students->save();
+        $etudiant->save();
 
-        return redirect()->route('etudiant.index')->with('flash_message', 'Student Updated!');
+        return redirect('etudiant')->route('etudiant.index')->with('flash_message', 'etudiant Updated!');
     }
 
     public function destroy(string $id): RedirectResponse

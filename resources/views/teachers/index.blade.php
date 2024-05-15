@@ -21,11 +21,12 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>material</th>
-                                        <th>Address</th>
-                                        <th>Mobile</th>
+                                        <th>Photo personnelle</th>
+                                        <th>Nam</th>
+                                        <th>Matiere</th>
+                                        <th>Emial</th>
+                                        <th>Telephone</th>
+                                        <th>Actions</th>
                                         
                                     </tr>
                                 </thead>
@@ -40,13 +41,13 @@
                                         <td>{{ $item->mobile }}</td>
  
                                         <td>
-                                            <a href="{{ url('/teachers/' . $item->id) }}" title="View Teachers"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/teachers/' . $item->id . '/edit') }}" title="Edit teachers"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/teachers/' . $item->id) }}" title="View Teachers"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Afficher</button></a>
+                                            <a href="{{ url('/teachers/' . $item->id . '/edit') }}" title="Edit teachers"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier</button></a>
  
                                             <form method="POST" action="{{ url('/teachers' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 @csrf
-                                                <a href="{{ url('/teachers/' . $item->id) }}" title="Delete teachers"> <button type="submit" class="btn btn-danger btn-sm" title="Delete Student" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                <a href="{{ url('/teachers/' . $item->id) }}" title="Delete teachers"> <button type="submit" class="btn btn-danger btn-sm" title="Delete Student" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Supprimer</button>
                                             </form>
                                         </td>
                                     </tr>

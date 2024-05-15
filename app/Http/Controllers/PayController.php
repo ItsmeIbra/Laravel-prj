@@ -46,7 +46,7 @@ class PayController extends Controller
     public function edit(string $id): View
     {
         $payment = payment::find($id);
-        return view('payment.edit')->with('payments', $payment);
+        return view('payment.edit')->with('payment', $payment);
     }
 
     public function update(Request $request, string $id): RedirectResponse

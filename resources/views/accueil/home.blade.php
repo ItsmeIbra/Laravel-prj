@@ -14,16 +14,15 @@
             <a class="nav-link active" aria-current="page" href="#"></a>
           </li>
         </ul>
-        <form action="" method="POST" class="d-flex" role="search">
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-danger" type="submit">Logout</button>
-        </form>
+        <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+          @csrf
+          <button class="btn btn-danger" type="submit">Logout</button>
+      </form>
       </div>
     </div>
 </nav>
 {{-- {{ Auth::user()->name }} --}}
 <div class="container">
-   <h1> Welcome </h1>
+   <h1> Bienvenue </h1>
 </div>
 @endsection

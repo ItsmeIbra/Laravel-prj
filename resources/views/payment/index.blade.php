@@ -20,9 +20,9 @@
             <thead>
                  <tr>
                  <th>ID</th>
-                <th>payement method</th>
-                <th>paid date</th>
-                 <th>Amount</th>
+                <th>Methode de paiement</th>
+                <th>Date de paiement</th>
+                 <th>Monatnt</th>
               </tr>
              </thead>
                 <tbody>
@@ -33,13 +33,13 @@
                     <td>{{ $item->paid_data}}</td>
                      <td>{{ $item->amount }}</td>
                     <td>
-            <a href="{{ url('/payment/' . $item->id) }}" title="View payment"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-            <a href="{{ url('/payment/' . $item->id . '/edit') }}" title="Edit pay"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+            <a href="{{ url('/payment/' . $item->id) }}" title="View payment"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Afficher</button></a>
+            <a href="{{ url('/payment/' . $item->id . '/edit') }}" title="Edit pay"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modifier</button></a>
  
     <form method="POST" action="{{ url('/payment' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
         {{ method_field('DELETE') }}
            @csrf
-         <a href="{{ url('/payment/' . $item->id) }}" title="Delete Student"> <button type="submit" class="btn btn-danger btn-sm" title="Delete Student" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+         <a href="{{ url('/payment/' . $item->id) }}" title="Delete Student"> <button type="submit" class="btn btn-danger btn-sm" title="Delete Student" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i>Supprimer</button>
           </form>
          </td>
             </tr>
