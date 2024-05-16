@@ -5,7 +5,7 @@
   <div class="card-header">Edit teachers Page</div>
   <div class="card-body">
       
-    <form action="{{ route('teachers.update', ['id' => $teachers->id]) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('/teachers/' .$etudiant->id) }}" method="post" enctype="multipart/form-data">
       @csrf
        
         @method("PATCH")

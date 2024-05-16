@@ -64,35 +64,10 @@ class StudentController extends Controller
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        $request->validate([
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'name' => 'required',
-            'level' => 'required|integer',
-            'email' => 'max:255',
-            'mobile' => 'required',
-        ]);
-
-        $etudiant = Student::findOrFail($id);
-
-
-        $etudiant->name = $request->input('name');
-        $etudiant->level = $request->input('level');
-        $etudiant->email = $request->input('email');
-        $etudiant->mobile = $request->input('mobile');
-
-
-        if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $path = public_path('images');
-            $file->move($path, $filename);
-            $etudiant->image = $filename;
-        }
-
-
-        $etudiant->save();
-
-        return redirect('etudiant')->route('etudiant.index')->with('flash_message', 'etudiant Updated!');
+        $student = Student::find($id);
+        $input = $request->all();
+        $student->update($input);
+        return redirect('student')->with('flash_message', 'student Updated!');
     }
 
     public function destroy(string $id): RedirectResponse

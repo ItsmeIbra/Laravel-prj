@@ -64,31 +64,10 @@ class TeacherController extends Controller
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        $request->validate([
-            'name' => 'required',
-            'material' => 'required|integer',
-            'email' => 'max:255',
-            'mobile' => 'required',
-        ]);
-
         $teachers = Teachers::find($id);
-
-        $teachers->name = $request->input('name');
-        $teachers->material = $request->input('material');
-        $teachers->email = $request->input('email');
-        $teachers->mobile = $request->input('mobile');
-
-        if ($request->hasFile('img')) {
-            $file = $request->file('img');
-            $filename = time() . '_' . $file->getClientOriginalName();
-            $path = public_path('imgs');
-            $file->move($path, $filename);
-            $teachers->img = $filename;
-        }
-
-        $teachers->save();
-
-        return redirect()->route('teachers.index')->with('flash_message', 'Student Updated!');
+        $input = $request->all();
+        $teachers->update($input);
+        return redirect('teachers')->with('flash_message', 'teacher Updated!');
     }
 
     public function destroy(string $id): RedirectResponse
