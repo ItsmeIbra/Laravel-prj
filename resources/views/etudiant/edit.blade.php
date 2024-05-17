@@ -5,7 +5,7 @@
   <div class="card-header">Modifier la page de étudiant</div>
   <div class="card-body">
       
-    <form action="{{ url('/etudaint/' .$etudiant->id) }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('/etudiant/' .$etudiant->id) }}" method="post" enctype="multipart/form-data">
 
        @csrf
         @method("PATCH")

@@ -64,10 +64,10 @@ class StudentController extends Controller
 
     public function update(Request $request, string $id): RedirectResponse
     {
-        $student = Student::find($id);
+        $etudiant = Student::find($id);
         $input = $request->all();
-        $student->update($input);
-        return redirect('student')->with('flash_message', 'student Updated!');
+        $etudiant->update($input);
+        return redirect('etudiant')->with('flash_message', 'student Updated!');
     }
 
     public function destroy(string $id): RedirectResponse
